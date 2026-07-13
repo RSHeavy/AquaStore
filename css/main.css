@@ -1,0 +1,253 @@
+﻿/*-------------------- Main bar --------------------*/
+html {
+    scroll-behavior: smooth;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1e1e2f;
+    color: white;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.brand-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+}
+
+
+/*-------------------- Sidebar --------------------*/
+.sidebar-btn {
+    display: flex;
+    background-color: #1e1e2f;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.sidebar {
+    position: fixed;
+    
+    width: 200px;
+    height: auto;
+    
+    background-color: #1e1e2f;
+    color: white;
+    
+    border-bottom-right-radius: 20px;
+    
+    left: -250px;
+
+    transition: left .3s;
+}
+
+.sidebar.active{
+    left: 0;
+}
+
+aside nav a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+aside nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+/*-------------------- Hero --------------------*/
+.hero {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.hero-img-aquarium img {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .3);
+}
+
+/*-------------------- Products --------------------*/
+.product {
+    padding: 60px 30px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.product-card {
+    background-color: #1e1e2f;
+    color: white;
+    width: 220px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    transition: .5s;
+}
+
+.product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/*-------------------- Features --------------------*/
+.features {
+    padding: 60px 30px;
+}
+
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.feature-card {
+    text-align: center;
+    width: 220px;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+}
+
+.features-icons {
+    font-size: 3rem;
+}
+
+
+/*-------------------- Footer --------------------*/
+footer {
+    padding: 25px 30px;
+    text-align: center;
+    background-color: #1e1e2f;
+    color: white;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/*-------------------- Utilities --------------------*/
+.pointer {
+    cursor: pointer;
+}
+
+.hover-cyan:hover {
+    color: #00bcd4;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #1e1e2f;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: .5s;
+    margin-top: auto;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #00bcd4;
+}
+
+/*-------------------- Tipografia --------------------*/
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-img-aquarium img {
+        width: 90%;
+    }
+}

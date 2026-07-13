@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AquaStore</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="main-nav">
+            <div class="brand-menu">
+                <div class="page-menu">
+                    <button class="sidebar-btn hover-cyan" type="button"> ≡ </button>
+                </div>
+
+                <a class="logo hover-cyan" href="index.html">
+                    <h2>AquaStore</h2>
+                </a>
+            </div>
+
+            <ul>
+                <li><a class="hover-cyan" href="#destacados">Destacados</a></li>
+                <li><a class="hover-cyan" href="#features">Beneficios</a></li>
+                <li><a class="hover-cyan" href="#contact">Contacto</a></li>
+                <li><a class="cart-link hover-cyan" href="cart.html"> Carrito <span id="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a class="hover-cyan" href="">Peces</a></li>
+                <li><a class="hover-cyan" href="">Plantas</a></li>
+                <li><a class="hover-cyan" href="">accesorios</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="inicio">
+        <section class="hero">
+            <div class="hero-img-aquarium">
+                <img src="../img/icons/aquarium.jpg" alt="Acuario con peces y plantas">
+            </div>
+            <div class="hero-description">
+                <h2>Esenciales para tu acuario</h2>
+                <p>Encuentra peces, plantas, comida y mucho mas.</p>
+                <a class="btn" href="#destacados">Ver catalogo</a>
+            </div>
+        </section>
+
+        <section id="destacados" class="product">
+            <h2>Articulos destacados</h2>
+
+            <div class="product-container">
+
+                <div class="product-card">
+                    <img src="../img/Fishes/angel.jpg" alt="pez angel">
+
+                    <h3>Pez Angel</h3>
+                    <p>$ 100.00 MXN</p>
+
+                    <button class="btn add-to-cart" data-name="pez angel">Agregar al carrito</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="../img/plants/Cola de zorro.png" alt="Planta natural cola de zorro">
+
+                    <h3>Cola de Zorro</h3>
+                    <p>$ 99.00 MXN</p>
+
+                    <button class="btn add-to-cart" data-name="planta natural cola de zorro">Agregar al carrito</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="../img/Fod/LOMAS hojuelas.png" alt="Comida en hojuelas para peces">
+
+                    <h3>LOMAS Hojuelas</h3>
+                    <p>$ 149.00 MXN</p>
+
+                    <button class="btn add-to-cart" data-name="LOMAS Hojuelas">Agregar al carrito</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2>Por que elegirnos?</h2>
+
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="features-icons">💬</div>
+
+                    <h3>Atencion personalizada</h3>
+                    <p>Guia y atencion con base en tus necesidades.</p>
+
+                </div>
+                <div class="feature-card">
+                    <div class="features-icons">🐠</div>
+
+                    <h3>Peces sanos</h3>
+                    <p>Cuidados y alimentados acorde a las necesidades del pez.</p>
+
+                </div>
+
+                <div class="feature-card">
+                    <div class="features-icons">🌿</div>
+
+                    <h3>Plantas naturales</h3>
+                    <p>Sanas y con parametros adecuados.</p>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>Contacto: aquastore@example.com</p>
+        <p>© 2026 AquaStore</p>
+    </footer>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
