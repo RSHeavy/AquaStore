@@ -32,8 +32,78 @@ CREATE TABLE usuarios(
                                        OR REGEXP_LIKE(telefono, '^[0-9]{10}$'))
 );
 
+CREATE TABLE carrito(
+    id_carrito NUMBER,
+    id_clie NUMBER NOT NULL,
+    fecha_creacion DATE DEFAULT SYSDATE NOT NULL,
+    estatus NUMBER DEFAULT 1 NOT NULL,
+
+    CONSTRAINT pk_carrito PRIMARY KEY(id_carrito),
+    CONSTRAINT fk_carrito_usuarios 
+       FOREIGN KEY(id_clie)
+    REFERENCES usuarios(id_clie),
+    CONSTRAINT chk_carrito_estatus CHECK (estatus IN (0,1))
+);
+
+CREATE TABLE direcciones(
+    id_direccion NUMBER,
+    id_clie NUMBER NOT NULL,
+    calle VARCHAR2(50) NOT NULL,
+    numero_ext VARCHAR2(15) NOT NULL,
+    numero_int VARCHAR2(15),
+    colonia VARCHAR2(50) NOT NULL,
+    cp VARCHAR2(5) NOT NULL,
+    referencia VARCHAR2(255),
+    id_estado NUMBER NOT NULL,
+    id_municipio NUMBER NOT NULL,
+
+    CONSTRAINT pk_direcciones PRIMARY KEY(id_direccion),
+    CONSTRAINT fk_direcciones_municipios
+       FOREIGN KEY(id_estado, id_municipio)
+    REFERENCES municipios(id_estado, id_municipio),
+    CONSTRAINT fk_direcciones_usurios
+       FOREIGN KEY(id_clie)
+    REFERENCES usuarios(id_clie),
+    CONSTRAINT chk_direcciones_cp CHECK (REGEXP_LIKE(cp, '^[0-9]{5}$'))
+);
+
 CREATE TABLE categorias(
-    id_categoria
+    id_categoria NUMBER,
+    nombre  VARCHAR2(50) NOT NULL,
+    descripcion VARCHAR2(255),
+
+    CONSTRAINT pk_categorias PRIMARY KEY(id_categoria),
+    CONSTRAINT uk_categorias_nombre UNIQUE(nombre)
+);
+
+CREATE TABLE productos(
+    id_producto NUMBER,
+    id_categoria NUMBER NOT NULL,
+    nombre VARCHAR2(100) NOT NULL,
+    codigo_barras VARCHAR2(14),
+    presentacion VARCHAR2(50) NOT NULL,
+    descripcion VARCHAR2(500),
+    precio NUMBER(10,2) NOT NULL,
+    stock NUMBER(5) NOT NULL,
+    imagen VARCHAR2(255),
+    estatus NUMBER(1) DEFAULT 1 NOT NULL,
+
+    CONSTRAINT pk_productos PRIMARY KEY(id_producto),
+    CONSTRAINT fk_productos_categoria 
+       FOREIGN KEY(id_categoria)
+    REFERENCES categorias(id_categoria),
+    CONSTRAINT uk_productos_codigo_barras UNIQUE(codigo_barras),
+    CONSTRAINT chk_productos_precio CHECK (precio >= 0),
+    CONSTRAINT chk_productos_stock CHECK (stock >= 0),
+    CONSTRAINT chk_productos_estatus CHECK (estatus IN (0,1))
+);
+
+CREATE TABLE detalle_carrito(
+    id_carrito NUMBER,
+    id_producto NUMBER,
+    cantidad NUMBER(5) NOT NULL,
+
+    CONSTRAINT pk_detalle_carrito PRIMARY KEY(id_carrito, id_), 
 );
 
 CREATE TABLE ventas(
