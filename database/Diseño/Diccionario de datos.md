@@ -1,17 +1,17 @@
-~~=========================================~~
+=========================================
 
-~~TABLA: USUARIOS~~
+TABLA: USUARIOS
 
-~~=========================================~~
+=========================================
 
-|<del>**Nombre**</del>|<del>**tipo**</del>|<del>**Restricción**</del>|<del>**Descripción**</del>|
+|**Nombre**|**tipo**|**Restricción**|**Descripción**|
 |-|-|-|-|
-|~~id\_clie~~|~~NUMBER~~|~~PK~~|~~Identificador del usuario~~|
-|~~nombre~~|~~VARCHAR2(50)~~|~~NOT NULL~~|~~Nombre del usuario~~|
-|~~apellido~~|~~VARCHAR2(50)~~|~~NOT NULL~~|~~Apellido del usuario~~|
-|~~correo~~|~~VARCHAR2(100)~~|~~NOT NULL, UNIQUE~~|~~Correo de ingreso~~|
-|~~password\_hash~~|~~VARCHAR2(255)~~|~~NOT NULL~~|~~Hash de la contraseña del usuario~~|
-|~~telefono~~|~~VARCHAR2(10)~~|~~NULL, CHECK (<br />    telefono IS NULL<br />    OR REGEXP\_LIKE(telefono, '^\[0-9]{10}$')<br />)~~|~~Teléfono contacto usuario~~|
+|id\_clie|NUMBER|PK|Identificador del usuario|
+|nombre|VARCHAR2(50)|NOT NULL|Nombre del usuario|
+|apellido|VARCHAR2(50)|NOT NULL|Apellido del usuario|
+|correo|VARCHAR2(100)|NOT NULL, UNIQUE|Correo de ingreso|
+|password\_hash|VARCHAR2(255)|NOT NULL|Hash de la contraseña del usuario|
+|telefono|VARCHAR2(10)|NULL, CHECK (<br />    telefono IS NULL<br />    OR REGEXP\_LIKE(telefono, '^\[0-9]{10}$')<br />)|Teléfono contacto usuario|
 
 
 
@@ -51,36 +51,34 @@ TABLA: DETALLE\_VENTA
 |precio\_unitario|NUMBER(10,2)|NOT NULL, CHECK(precio\_unitario > 0)|Precio por unidad|
 |subtotal|NUMBER(10,2)|NOT NULL, GENERATED ALWAYS AS<br />(cantidad \* precio\_unitario) VIRTUAL|total sin envió|
 
+=========================================
 
-
-~~=========================================~~
-
-~~TABLA: ESTADOS~~
-
-~~=========================================~~
-
-|<del>**Nombre**</del>|<del>**tipo**</del>|<del>**Restricción**</del>|<del>**Descripción**</del>|
-|-|-|-|-|
-|~~id\_estado~~|~~NUMBER~~|~~PK~~|~~Identificador del estado~~|
-|~~nombre~~|~~VARCHAR2(50)~~|~~NOT NULL, UNIQUE~~|~~Nombre del estado~~|
+TABLA: ESTADOS
 
 =========================================
 
-~~TABLA: MUNICIPIOS~~
-
-~~=========================================~~
-
-|<del>**Nombre**</del>|<del>**tipo**</del>|<del>**Restricción**</del>|<del>**Descripción**</del>|
+|**Nombre**|**tipo**|**Restricción**|**Descripción**|
 |-|-|-|-|
-|~~id\_municipio~~|~~NUMBER~~|~~PK~~|~~Identificador del municipio~~|
-|~~id\_estado~~|~~NUMBER~~|~~FK, PK~~|~~Llave compuesta~~|
-|~~nombre~~|~~VARCHAR2(50)~~|~~NOT NULL~~|~~Nombre del municipio~~|
+|id\_estado|NUMBER|PK|Identificador del estado|
+|nombre|VARCHAR2(50)|NOT NULL, UNIQUE|Nombre del estado|
 
-~~PK (id\_estado, id\_municipio)~~
+=========================================
 
-~~FK (id\_estado) → ESTADOS(id\_estado)~~
+TABLA: MUNICIPIOS
 
-~~UNIQUE (id\_estado, nombre)~~
+=========================================
+
+|**Nombre**|**tipo**|**Restricción**|**Descripción**|
+|-|-|-|-|
+|id\_municipio|NUMBER|PK|Identificador del municipio|
+|id\_estado|NUMBER|FK, PK|Llave compuesta|
+|nombre|VARCHAR2(50)|NOT NULL|Nombre del municipio|
+
+PK (id\_estado, id\_municipio)
+
+FK (id\_estado) → ESTADOS(id\_estado)
+
+UNIQUE (id\_estado, nombre)
 
 =========================================
 
